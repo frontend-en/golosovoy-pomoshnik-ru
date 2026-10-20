@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Голосовой помощник RU</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="icons/icon48.png" width="40" height="40" alt="">
+        <div>
+          <h1>Голосовой помощник</h1>
+          <p id="status" class="status">Готов к работе</p>
+        </div>
+      </header>
+
+      <section aria-labelledby="voice-heading">
+        <h2 id="voice-heading">Озвучивание</h2>
+        <label>
+          <span>Голос</span>
+          <select id="voice">
+            <option value="">Автоматически — русский</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Скорость <output id="rate-value">1.0×</output></span>
+          <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1">
+        </label>
+
+        <label>
+          <span>Высота голоса <output id="pitch-value">1.0</output></span>
+          <input id="pitch" type="range" min="0.5" max="1.5" step="0.1" value="1">
+        </label>
+
+        <div class="button-row">
+          <button id="test" class="primary" type="button">▶ Пример</button>
+          <button id="pause" type="button">⏯ Пауза</button>
+          <button id="stop" type="button">■ Стоп</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="dictation-heading">
+        <div class="section-title">
+          <h2 id="dictation-heading">Диктовка</h2>
+          <span class="chip">ru-RU</span>
+        </div>
+        <p class="hotkey"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> удерживать — говорить, отпустить — вставить</p>
+        <p class="hint">Поставьте курсор в поле на странице и нажмите кнопку или выберите команду правой кнопкой мыши.</p>
+        <div class="button-row two">
+          <button id="dictate" class="primary" type="button">🎙 Начать</button>
+          <button id="stop-dictation" type="button">⏹ Остановить</button>
+        </div>
+      </section>
+
+      <section class="settings" aria-label="Дополнительные настройки">
+        <label class="check">
+          <input id="voice-commands" type="checkbox" checked>
+          <span>Команды «точка», «запятая», «новая строка»</span>
+        </label>
+        <label class="check">
+          <input id="push-to-talk" type="checkbox" checked>
+          <span>Удерживание Ctrl + Alt включает быструю диктовку</span>
+        </label>
+      </section>
+
+      <footer>
+        <span>Озвучить: Ctrl+Shift+9</span>
+        <span>Диктовка: удерживать Ctrl+Alt</span>
+        <span>Стоп: Ctrl+Shift+0</span>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
